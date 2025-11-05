@@ -31,7 +31,7 @@ export default function LoginPage() {
         router.refresh();
       }
     } catch (err) {
-      setError('Error logging in');
+      setError('Error logging in ' + JSON.stringify(err));
     } finally {
       setLoading(false);
     }
@@ -88,7 +88,7 @@ export default function LoginPage() {
           </button>
         </form>
         <p className="mt-4 text-center text-sm text-gray-600 dark:text-gray-400">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link
             href="/signup"
             className="font-medium text-blue-600 hover:text-blue-500 dark:text-blue-400"

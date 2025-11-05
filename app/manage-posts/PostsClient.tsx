@@ -22,7 +22,7 @@ export default function PostsClient() {
   // Load posts
   const fetchPosts = async () => {
     try {
-      const response = await fetch('/api/posts');
+      const response = await fetch('/api/my-posts');
       if (response.ok) {
         const data = await response.json();
         setPosts(data.posts || []);
@@ -44,7 +44,7 @@ export default function PostsClient() {
     setSubmitting(true);
 
     try {
-      const response = await fetch('/api/posts', {
+      const response = await fetch('/api/my-posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -80,7 +80,7 @@ export default function PostsClient() {
     setSubmitting(true);
 
     try {
-      const response = await fetch(`/api/posts/${editingPost.id}`, {
+      const response = await fetch(`/api/my-posts/${editingPost.id}`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -110,7 +110,7 @@ export default function PostsClient() {
     }
 
     try {
-      const response = await fetch(`/api/posts/${id}`, {
+      const response = await fetch(`/api/my-posts/${id}`, {
         method: 'DELETE',
       });
 
@@ -233,7 +233,7 @@ export default function PostsClient() {
         {posts.length === 0 ? (
           <div className="rounded-lg bg-white p-8 text-center shadow-lg dark:bg-zinc-900">
             <p className="text-gray-600 dark:text-gray-400">
-              You don't have any posts yet. Create your first post!
+              You don&apos;t have any posts yet. Create your first post!
             </p>
           </div>
         ) : (

@@ -37,12 +37,20 @@ export default async function DashboardPage() {
             <p className="mb-4 text-sm text-blue-800 dark:text-blue-300">
               This is a protected route. You can only see it if you are authenticated.
             </p>
-            <Link
-              href="/dashboard/posts"
-              className="inline-block rounded-md bg-blue-600 px-6 py-2 text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
-            >
-              Manage Posts →
-            </Link>
+            <div className="flex gap-4">
+              <Link
+                href="/manage-posts"
+                className="inline-block rounded-md bg-blue-600 px-6 py-2 text-sm text-white hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              >
+                Manage Posts →
+              </Link>
+              <Link
+                href="/posts"
+                className="inline-block rounded-md bg-green-600 px-6 py-2 text-sm text-white hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2"
+              >
+                View All Posts →
+              </Link>
+            </div>
           </div>
         </div>
       </div>

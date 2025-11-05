@@ -34,7 +34,7 @@ export default function SignupPage() {
         router.push('/login');
       }
     } catch (err) {
-      setError('Error creating account');
+      setError('Error creating account ' + JSON.stringify(err));
     } finally {
       setLoading(false);
     }
