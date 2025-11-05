@@ -1,4 +1,5 @@
-import { defineConfig, env } from 'prisma/config';
+import { defineConfig } from 'prisma/config';
+import { envs } from './config';
 
 export default defineConfig({
   schema: 'prisma/schema.prisma',
@@ -7,6 +8,6 @@ export default defineConfig({
   },
   engine: 'classic',
   datasource: {
-    url: env('POSTGRES_URL'),
+    url: envs.POSTGRES_URL,
   },
 });
