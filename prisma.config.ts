@@ -8,6 +8,6 @@ export default defineConfig({
   },
   engine: 'classic',
   datasource: {
-    url: envs.POSTGRES_URL,
+    url: envs.POSTGRES_URL!,
   },
 });
