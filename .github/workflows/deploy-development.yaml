@@ -21,6 +21,4 @@ jobs:
       - run: npm run db:migrate:deploy
       - run: npm run build
       - run: npm install -g vercel
-      - run: vercel pull --yes --environment=production --token $VERCEL_TOKEN
-      - run: vercel build --prod --token $VERCEL_TOKEN
-      - run: vercel deploy --prebuilt --yes --prod --token $VERCEL_TOKEN
+      - run: vercel deploy --yes --prod --token $VERCEL_TOKEN
