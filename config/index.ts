@@ -6,15 +6,23 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 export const envs = {
-  PORT: env.get('PORT').required().asPortNumber(),
-  POSTGRES_USER: env.get('POSTGRES_USER').required().asString(),
-  POSTGRES_PASSWORD: env.get('POSTGRES_PASSWORD').required().asString(),
-  POSTGRES_DB: env.get('POSTGRES_DB').required().asString(),
-  POSTGRES_PORT: env.get('POSTGRES_PORT').required().asPortNumber(),
-  POSTGRES_URL: env.get('POSTGRES_URL').required().asString(),
-  PGADMIN_DEFAULT_PASSWORD: env.get('PGADMIN_DEFAULT_PASSWORD').required().asString(),
-  PGADMIN_DEFAULT_EMAIL: env.get('PGADMIN_DEFAULT_EMAIL').required().asString(),
-  NODE_ENV: env.get('NODE_ENV').required().asEnum(['development', 'production', 'test']),
-  NEXTAUTH_SECRET: env.get('NEXTAUTH_SECRET').required().asString(),
+  // Just development (Docker)
+  PORT: env.get('PORT').default('3000').asPortNumber(),
+  POSTGRES_USER: env.get('POSTGRES_USER').asString(),
+  POSTGRES_PASSWORD: env.get('POSTGRES_PASSWORD').asString(),
+  POSTGRES_DB: env.get('POSTGRES_DB').asString(),
+  POSTGRES_PORT: env.get('POSTGRES_PORT').default('5432').asPortNumber(),
+  // Required in production GitHub Actions
+  POSTGRES_URL: env.get('POSTGRES_URL').asString(),
+  // Just development (Docker)
+  PGADMIN_DEFAULT_PASSWORD: env.get('PGADMIN_DEFAULT_PASSWORD').asString(),
+  PGADMIN_DEFAULT_EMAIL: env.get('PGADMIN_DEFAULT_EMAIL').asString(),
+  // Environment configuration
+  NODE_ENV: env
+    .get('NODE_ENV')
+    .default('development')
+    .asEnum(['development', 'production', 'test']),
+  // Required in production Vercel
+  NEXTAUTH_SECRET: env.get('NEXTAUTH_SECRET').asString(),
   NEXTAUTH_URL: env.get('NEXTAUTH_URL').default('http://localhost:3000').asString(),
 };
